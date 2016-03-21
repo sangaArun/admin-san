@@ -9,15 +9,20 @@ var path = require('path'),
   Article = mongoose.model('Article'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
-csv.fromPath("/Users/sangamesh/Documents/test-csv/device-list1.csv")
- .on("data", function(data) {
-   console.log(data);
- })
- .on("end", function() {
-   console.log("done");
- });
 
+  /**
+  *REad csv
+  **/
 
+exports.csvUpload = function (req, res) {
+  csv.fromPath("/Users/sangamesh/Documents/test-csv/device-list1.csv")
+    .on("data", function(data) {
+      console.log(data);
+    })
+    .on("end", function() {
+      console.log("done  sanga");
+    });
+};
 /**
  * Create an article
  */
