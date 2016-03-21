@@ -18,7 +18,9 @@ module.exports = {
         'public/lib/angular-ui-router/release/angular-ui-router.min.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
         'public/lib/angular-file-upload/dist/angular-file-upload.min.js',
-        'public/lib/owasp-password-strength-test/owasp-password-strength-test.js'
+        'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
+        'public/lib/ng-file-upload-shim/ng-file-upload-shim.js',
+        'public/lib/ng-file-upload/ng-file-upload.js'
         // endbower
       ]
     },
