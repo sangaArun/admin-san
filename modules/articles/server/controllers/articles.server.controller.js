@@ -6,23 +6,36 @@
 var path = require('path'),
   mongoose = require('mongoose'),
   csv = require("fast-csv"),
+  fs = require("fs"),
   Article = mongoose.model('Article'),
+  DeviceList = mongoose.model('DeviceList'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
-
-  /**
+ /**
   *REad csv
   **/
 
-exports.csvUpload = function (req, res) {
-  csv.fromPath("/Users/sangamesh/Documents/test-csv/device-list1.csv")
-    .on("data", function(data) {
-      console.log(data);
-    })
-    .on("end", function() {
-      console.log("done  sanga");
-    });
-};
+// csvUpload = function (req, res) {
+//
+// };
+var file = path.join(__dirname, "device-list.csv");
+var stream = fs.createReadStream(file);
+csv.fromStream(stream, { headers: ["ip", "snmp_version", "snmpv2_community", "snmpv3_user", "snmpv3_auth", "snmpv3_auth_key", "snmpv3_privacy", "snmpv3_privacy_key"] })
+.on("data", function(data) {
+
+  var devices = new DeviceList(data);
+  // console.log(devices, '***********');
+  devices.save(function (err, data) {
+    if (err)
+      console.log(err);
+    else {
+      // console.log("saved *****", data);
+    }
+  });
+})
+.on("end", function() {
+  console.log("done  sanga");
+});
 /**
  * Create an article
  */
