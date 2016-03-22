@@ -1,0 +1,8 @@
+ip,snmp_version,snmpv2_community,snmpv3_user,snmpv3_auth,snmpv3_auth_key,snmpv3_privacy,snmpv3_privacy_key,
+192.168.128.1,2,cbala,,,,,,
+192.168.128.2,3,,cbala,SHA,cbala1234,AES,cbala1234,
+192.168.128.3,2,cbala,,,,,,
+192.168.128.4,3,,sanga,SHA,sanga1234,AES,sanga1234,
+192.168.128.5,3,,bhar,SHA,Bha1234,AES,Bha1234,
+192.168.128.6,2,sanga,,,,,,
+192.168.128.7,2,bhara,,,,,,
