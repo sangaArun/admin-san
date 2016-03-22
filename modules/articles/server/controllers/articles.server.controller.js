@@ -20,7 +20,7 @@ var path = require('path'),
 // };
 var file = path.join(__dirname, "device-list1.csv");
 var stream = fs.createReadStream(file);
-csv.fromStream(stream, { headers: ["ip", "snmp_version", "snmpv2_community", "snmpv3_user", "snmpv3_auth", "snmpv3_auth_key", "snmpv3_privacy", "snmpv3_privacy_key"] })
+/* csv.fromStream(stream, { headers: ["ip", "snmp_version", "snmpv2_community", "snmpv3_user", "snmpv3_auth", "snmpv3_auth_key", "snmpv3_privacy", "snmpv3_privacy_key"] })
 .on("data", function(data) {
 
   var devices = new DeviceList(data);
@@ -35,7 +35,7 @@ csv.fromStream(stream, { headers: ["ip", "snmp_version", "snmpv2_community", "sn
 })
 .on("end", function() {
   console.log("done  sanga");
-});
+}); */
 /**
  * Create an article
  */
@@ -53,6 +53,15 @@ exports.create = function (req, res) {
     }
   });
 };
+
+DeviceList.find().exec(function (err, devices) {
+  if (err) {
+    console.log('Enterd the err', err);
+  } else {
+    console.log(devices);
+  }
+});
+
 
 /**
  * Show the current article
