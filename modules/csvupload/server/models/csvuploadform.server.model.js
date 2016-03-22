@@ -1,19 +1,14 @@
-/*
 'use strict';
 
-*/
 /**
  * Module dependencies
- *//*
-
+ */
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
-*/
 /**
  * Article Schema
- *//*
-
+ */
 var deviceListSchema = new Schema({
   ip: {
     type: String,
@@ -51,4 +46,3 @@ var deviceListSchema = new Schema({
 });
 
 mongoose.model('DeviceList', deviceListSchema);
-*/

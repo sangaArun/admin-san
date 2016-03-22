@@ -18,7 +18,7 @@ var path = require('path'),
 // csvUpload = function (req, res) {
 //
 // };
-var file = path.join(__dirname, "device-list1.csv");
+/*var file = path.join(__dirname, "device-list1.csv");
 var stream = fs.createReadStream(file);
 csv.fromStream(stream, { headers: ["ip", "snmp_version", "snmpv2_community", "snmpv3_user", "snmpv3_auth", "snmpv3_auth_key", "snmpv3_privacy", "snmpv3_privacy_key"] })
 .on("data", function(data) {
@@ -35,7 +35,7 @@ csv.fromStream(stream, { headers: ["ip", "snmp_version", "snmpv2_community", "sn
 })
 .on("end", function() {
   console.log("done  sanga");
-});
+});*/
 /**
  * Create an article
  */
