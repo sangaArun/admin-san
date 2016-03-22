@@ -18,7 +18,7 @@
         vm.upload(vm.file);
     }
 
-    function upload = function (file) {
+    var upload = function (file) {
             Upload.upload({
                 url: 'http://localhost:3000/upload', //webAPI exposed to upload the file
                 data:{file:file} //pass file as data, should be user ng-model
