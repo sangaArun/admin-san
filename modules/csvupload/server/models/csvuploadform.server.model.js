@@ -42,6 +42,11 @@ var deviceListSchema = new Schema({
     type: String,
     default: '',
     trim: true
+  },
+  company: {
+    type: String,
+    default: '',
+    trim: true
   }
 });
 

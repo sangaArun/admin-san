@@ -27,12 +27,12 @@ var upload = multer(config.uploads.profileUpload).single('file');
       return;
     }
     var file = req.file;
-    console.log(file);
     console.log(req.file.filename);
     var stream = fs.createReadStream(req.file.path);
     csv.fromStream(stream, { headers: ['ip', 'snmp_version', 'snmpv2_community', 'snmpv3_user', 'snmpv3_auth', 'snmpv3_auth_key', 'snmpv3_privacy', 'snmpv3_privacy_key'] })
       .on('data', function(data) {
         var devices = new DeviceList(data);
+        devices.set('company', req.user.company);
         // console.log(devices, '***********');
         devices.save(function (err, data) {
           if (err) {
