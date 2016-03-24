@@ -9,13 +9,7 @@
 
   function CsvuploadService($resource) {
 
-    /* return $resource('api/articles/:articleId', {
-      articleId: '@_id'
-    }, {
-      update: {
-        method: 'PUT'
-      }
-    }); */
+     return $resource('/fetch/deviceList');
 
   }
 }());

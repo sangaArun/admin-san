@@ -15,5 +15,38 @@
         </div>
       </fieldset>
     </form>
+    <table ng-table="tableParams" show-filter="true" data-ng-show="vm.deviceList.length > 0" >
+      <tbody>
+      <tr ng-repeat="device in $data" class="table" >
+        <td data-title="'Ip'" filter="{ 'ip': 'text' }" sortable="'ip'">
+          {{device.ip}}
+        </td>
+        <!--<td data-title="'Company'" filter="{ 'name': 'company' }" sortable="'company'">
+          {{device.company}}
+        </td>-->
+        <td data-title="'Snmp Version'" filter="{ 'snmp_version': 'text' }" sortable="'snmp_version'">
+          {{device.snmp_version}}
+        </td>
+        <td data-title="'Snmpv3 Auth'" filter="{ 'snmpv3_auth': 'text' }" sortable="'snmpv3_auth'">
+          {{device.snmpv3_auth}}
+        </td>
+        <td data-title="'Snmpv3 Auth Key'" filter="{ 'snmpv3_auth_key': 'text' }" sortable="'snmpv3_auth_key'">
+          {{device.snmpv3_auth_key}}
+        </td>
+        <td data-title="'Snmpv3 Privacy'" filter="{ 'snmpv3_privacy': 'text' }" sortable="'snmpv3_privacy'">
+          {{device.snmpv3_privacy}}
+        </td>
+        <td data-title="'Snmpv3 Privacy Key'" filter="{ 'snmpv3_privacy_key': 'text' }" sortable="'snmpv3_privacy_key'">
+          {{device.snmpv3_privacy_key}}
+        </td>
+        <td data-title="'Snmpv3 User'" filter="{ 'snmpv3_user': 'text' }" sortable="'snmpv3_user'">
+          {{device.snmpv3_user}}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-12">
+
   </div>
 </section>

@@ -6,7 +6,8 @@ module.exports = {
       css: [
         // bower:css
         'public/lib/bootstrap/dist/css/bootstrap.css',
-        'public/lib/bootstrap/dist/css/bootstrap-theme.css'
+        'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+        'public/lib/ng-table/dist/ng-table.css'
         // endbower
       ],
       js: [
@@ -20,7 +21,8 @@ module.exports = {
         'public/lib/angular-file-upload/dist/angular-file-upload.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
         'public/lib/ng-file-upload-shim/ng-file-upload-shim.js',
-        'public/lib/ng-file-upload/ng-file-upload.js'
+        'public/lib/ng-file-upload/ng-file-upload.js',
+        'public/lib/ng-table/dist/ng-table.js'
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
