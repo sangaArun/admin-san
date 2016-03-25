@@ -37,15 +37,11 @@
 
 <body class="ng-cloak">
   <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-  <div style="background-color:black">
-    <div style="margin:0 10 0 10;background-color:white">
-  <section class="content">
+  <section class="content" style="margin-bottom: 19%">
     <section class="container">
       {% block content %}{% endblock %}
     </section>
   </section>
-    </div>
-  </div>
   <!--Embedding The User Object-->
   <script type="text/javascript">
     var user = {{ user | json | safe }};
