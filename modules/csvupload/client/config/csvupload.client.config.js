@@ -9,10 +9,10 @@
 
   function menuConfig(Menus) {
     Menus.addMenuItem('topbar', {
-      title: 'Csv Form',
+      title: 'Manage Devices',
       state: 'loadCsvForm.loadForm',
       // type: 'dropdown',
-      roles: ['*']
+      roles: ['user']
     });
 
     /* // Add the dropdown list item

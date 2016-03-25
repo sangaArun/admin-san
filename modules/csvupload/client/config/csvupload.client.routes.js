@@ -11,7 +11,7 @@
     $stateProvider
       .state('loadCsvForm', {
         abstract: true,
-        url: '/loadCsvForm',
+        url: '/loadDevices',
         template: '<ui-view/>'
       })
       .state('loadCsvForm.loadForm', {
@@ -20,7 +20,7 @@
         controller: 'CsvuploadController',
         controllerAs: 'vm',
         data: {
-          pageTitle: 'Csv Upload'
+          pageTitle: 'Manage Devices'
         }
       });
   }

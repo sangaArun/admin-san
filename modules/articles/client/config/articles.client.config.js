@@ -1,13 +1,13 @@
 (function () {
   'use strict';
 
-  angular
+  /*angular
     .module('articles')
     .run(menuConfig);
 
-  menuConfig.$inject = ['Menus'];
+  menuConfig.$inject = ['Menus'];*/
 
-  function menuConfig(Menus) {
+  /*function menuConfig(Menus) {
     Menus.addMenuItem('topbar', {
       title: 'Articles',
       state: 'articles',
@@ -27,5 +27,5 @@
       state: 'articles.create',
       roles: ['user']
     });
-  }
+  }*/
 }());

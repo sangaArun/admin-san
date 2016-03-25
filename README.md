@@ -22,12 +22,21 @@ $ npm install gulp -g
 ```
 ```bash
 npm install fast-csv
+```
+
+```bash
+bower install ng-table
+```
+
+```bash
+bower install ng-table
+```
 
 ## Downloading MEAN.JS
-There are several ways you can get the MEAN.JS boilerplate:
+## There are several ways you can get the MEAN.JS boilerplate:
 
-### Cloning The GitHub Repository
-The recommended way to get MEAN.js is to use git to directly clone the MEAN.JS repository:
+## Cloning The GitHub Repository
+## The recommended way to get MEAN.js is to use git to directly clone the MEAN.JS repository:
 
 grunt
 

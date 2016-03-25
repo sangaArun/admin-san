@@ -1,11 +1,11 @@
 <section>
   <div class="page-header">
-    <h1>CSV Upload Form</h1>
+    <h1>Upload Devices</h1>
   </div>
   <div class="col-md-12">
     <form name="vm.form.csvuploadForm" class="form-horizontal">
         <div class="form-group" show-errors>
-          <label class="control-label" for="title">Upload CSV</label>
+          <label class="control-label" for="title"></label>
           <span class="btn btn-default btn-file">
             Browse <input name="file" ngf-select ng-model="vm.file" type="file"/>
           </span>
@@ -21,9 +21,9 @@
         <td data-title="'Ip'" filter="{ 'ip': 'text' }" sortable="'ip'">
           {{device.ip}}
         </td>
-        <!--<td data-title="'Company'" filter="{ 'name': 'company' }" sortable="'company'">
+        <td data-title="'Company'" filter="{ 'company': 'text' }" sortable="'company'">
           {{device.company}}
-        </td>-->
+        </td>
         <td data-title="'Snmp Version'" filter="{ 'snmp_version': 'text' }" sortable="'snmp_version'">
           {{device.snmp_version}}
         </td>

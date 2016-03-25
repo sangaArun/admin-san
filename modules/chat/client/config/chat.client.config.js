@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular
+  /*angular
     .module('chat')
     .run(menuConfig);
 
@@ -13,5 +13,5 @@
       title: 'Chat',
       state: 'chat'
     });
-  }
+  }*/
 }());
