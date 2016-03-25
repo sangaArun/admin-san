@@ -29,7 +29,7 @@ bower install ng-table
 ```
 
 ```bash
-bower install ng-table
+bower install ng-file-upload --save
 ```
 
 ## Downloading MEAN.JS
