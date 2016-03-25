@@ -50,15 +50,15 @@
         data:{file:file} //pass file as data, should be user ng-model
         }).then(function (resp) { //upload function returns a promise
             if(resp.data.error_code === 0){ //validate success
-              $window.alert(resp.config.data.file.name + 'Uploaded Successfully.');
+              //$window.alert(resp.config.data.file.name + 'Uploaded Successfully.');
               vm.deviceList = resp.data.respDeviceList;
               $scope.tableParams.reload();
               vm.file = null;
             } else {
-              $window.alert('Upload Failed');
+              //$window.alert('Upload Failed');
             }
         }, function (resp) { //catch error
-          $window.alert('Upload Failed');
+          //$window.alert('Upload Failed');
         })
     }
   }
