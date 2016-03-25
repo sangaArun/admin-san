@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular
+  /*angular
     .module('users')
     .controller('SocialAccountsController', SocialAccountsController);
 
@@ -41,5 +41,5 @@
         vm.error = response.message;
       });
     }
-  }
+  }*/
 }());

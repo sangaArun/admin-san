@@ -53,14 +53,14 @@ exports.create = function (req, res) {
     }
   });
 };
-
+/*
 DeviceList.find().exec(function (err, devices) {
   if (err) {
     console.log('Enterd the err', err);
   } else {
     console.log(devices);
   }
-});
+});*/
 
 
 /**

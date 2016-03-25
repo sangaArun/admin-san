@@ -47,7 +47,16 @@ var deviceListSchema = new Schema({
     type: String,
     default: '',
     trim: true
-  }
+  },
+  created_by: {
+      type: String,
+      default: '',
+      trim: true
+    },
+  created_date    : {
+     type: Date
+     }
+
 });
 
 mongoose.model('DeviceList', deviceListSchema);

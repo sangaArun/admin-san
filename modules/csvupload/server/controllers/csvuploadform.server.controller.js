@@ -31,7 +31,11 @@ var deviceList = [];
     csv.fromStream(stream, { headers: ['ip', 'snmp_version', 'snmpv2_community', 'snmpv3_user', 'snmpv3_auth', 'snmpv3_auth_key', 'snmpv3_privacy', 'snmpv3_privacy_key'] })
       .on('data', function(data) {
         var devices = new DeviceList(data);
+        var now = new Date();
         devices.set('company', req.user.company);
+        var created_by = req.user.firstName + " " + req.user.lastName;
+        devices.set('created_by', created_by);
+        devices.set('created_date', now);
         // console.log(devices, '***********');
         devices.save(function (err, data) {
           if (err) {
