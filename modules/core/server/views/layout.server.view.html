@@ -36,8 +36,11 @@
 </head>
 
 <body class="ng-cloak">
-  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-  <section class="content" style="margin-bottom: 19%">
+<div class="row logo-align">
+  <img alt="Netsec" class="img-responsive text-center" src="modules/core/client/img/netsec-new.png" />
+</div>
+  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-inverse "></header>
+  <section class="content">
     <section class="container">
       {% block content %}{% endblock %}
     </section>

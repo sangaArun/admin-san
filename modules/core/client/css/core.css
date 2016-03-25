@@ -1,7 +1,9 @@
-.content {
-  margin-top: 50px;
+body {
   background-color:#f9f9f9;
-  min-height:550px;
+}
+.content {
+  background-color:#f9f9f9;
+  min-height:475px;
 }
 .undecorated-link:hover {
   text-decoration: none;
@@ -42,4 +44,7 @@ a:hover .header-profile-image {
 }
 .has-error .help-inline.error-text {
   display: inline;
+}
+.navbar{
+   margin-top: 33px;
 }
