@@ -31,9 +31,11 @@
         total: vm.deviceList.length,           // length of data
         getData: function($defer, params) {
         var orderedData = params.sorting() ? $filter('orderBy')(vm.deviceList, params.orderBy()) : data;
-        console.log(vm.search);
         orderedData	= $filter('filter')(orderedData, vm.search);
         params.total(orderedData.length);
+        if(params.total() < (params.page() -1) * params.count()){
+        params.page(1);
+        }
         $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));                     }
     });
 
