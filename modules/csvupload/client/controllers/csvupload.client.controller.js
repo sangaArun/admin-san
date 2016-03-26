@@ -20,6 +20,7 @@
     $scope.tableParams.reload();
     });
 
+
     $scope.tableParams = new ngTableParams({
         page: 1,            // show first page
         count: 10,          // count per page
@@ -30,9 +31,14 @@
         total: vm.deviceList.length,           // length of data
         getData: function($defer, params) {
         var orderedData = params.sorting() ? $filter('orderBy')(vm.deviceList, params.orderBy()) : data;
-        orderedData	= $filter('filter')(orderedData, params.filter());
+        console.log(vm.search);
+        orderedData	= $filter('filter')(orderedData, vm.search);
         params.total(orderedData.length);
         $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));                     }
+    });
+
+    $scope.$watch("vm.search", function () {
+        $scope.tableParams.reload();
     });
 
     // Save Article

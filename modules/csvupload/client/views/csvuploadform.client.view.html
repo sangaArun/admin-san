@@ -15,42 +15,50 @@
             <span>Upload</span>
             <input name="file" ngf-select ng-model="vm.file" type="file"/>
           </span>
-          <span class="dvc-mar-lef-2" data-ng-show="vm.file.name.length > 0">{{vm.file.name}}&nbsp;<i data-ng-click="vm.removeFile()" class="glyphicon  glyphicon-remove"></i></span>
+          <span class="dvc-mar-lef-2" data-ng-show="vm.file.name.length > 0">{{vm.file.name}}&nbsp;<i
+            data-ng-click="vm.removeFile()" class="glyphicon  glyphicon-remove"></i></span>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-file" data-ng-show="vm.file.name.length > 0" ng-click="vm.submit()"><i class="glyphicon glyphicon-upload"></i>&nbsp;Submit</button>
+          <button type="submit" class="btn btn-primary btn-file" data-ng-show="vm.file.name.length > 0"
+                  ng-click="vm.submit()"><i class="glyphicon glyphicon-upload"></i>&nbsp;Submit
+          </button>
         </div>
       </form>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12 table-container" >
-      <table ng-table="tableParams" show-filter="true" data-ng-show="vm.deviceList.length > 0"
+    <div class="form-group search-mar-left">
+      <span>Search:&nbsp;&nbsp;</span>
+      <input  name="search"  ng-model="vm.search" type="text"/>
+      </span>
+    </div>
+    <div class="col-md-12 table-container">
+      <table ng-table="tableParams" data-ng-show="vm.deviceList.length > 0"
              class="table table-bordered table-striped">
         <tbody>
         <tr ng-repeat="device in $data" class="table">
-          <td data-title="'Ip'" filter="{ 'ip': 'text' }" sortable="'ip'">
+          <td data-title="'Ip'" sortable="'ip'">
             {{device.ip}}
           </td>
-          <td data-title="'Snmp&nbsp;Version'" class="dvc-txt-algn-cen" filter="{ 'snmp_version': 'text' }"
+          <td data-title="'Snmp&nbsp;Version'" class="dvc-txt-algn-cen"
               sortable="'snmp_version'">
             {{device.snmp_version}}
           </td>
-          <td data-title="'Snmpv3&nbsp;Auth'" filter="{ 'snmpv3_auth': 'text' }" sortable="'snmpv3_auth'">
+          <td data-title="'Snmpv3&nbsp;Auth'" sortable="'snmpv3_auth'">
             {{device.snmpv3_auth}}
           </td>
-          <td data-title="'Snmpv3&nbsp;Auth&nbsp;Key'" filter="{ 'snmpv3_auth_key': 'text' }"
+          <td data-title="'Snmpv3&nbsp;Auth&nbsp;Key'"
               sortable="'snmpv3_auth_key'">
             {{device.snmpv3_auth_key}}
           </td>
-          <td data-title="'Snmpv3&nbsp;Privacy'" filter="{ 'snmpv3_privacy': 'text' }" sortable="'snmpv3_privacy'">
+          <td data-title="'Snmpv3&nbsp;Privacy'" sortable="'snmpv3_privacy'">
             {{device.snmpv3_privacy}}
           </td>
-          <td data-title="'Snmpv3&nbsp;Privacy&nbsp;Key'" filter="{ 'snmpv3_privacy_key': 'text' }"
+          <td data-title="'Snmpv3&nbsp;Privacy&nbsp;Key'"
               sortable="'snmpv3_privacy_key'">
             {{device.snmpv3_privacy_key}}
           </td>
-          <td data-title="'Snmpv3&nbsp;User'" filter="{ 'snmpv3_user': 'text' }" sortable="'snmpv3_user'">
+          <td data-title="'Snmpv3&nbsp;User'" sortable="'snmpv3_user'">
             {{device.snmpv3_user}}
           </td>
         </tr>
