@@ -29,37 +29,91 @@
   <div class="row">
     <div class="form-group search-mar-left">
       <span>Search:&nbsp;&nbsp;</span>
-      <input  name="search"  ng-model="vm.search" type="text"/>
+      <input name="search" ng-model="vm.search" type="text"/>
       </span>
     </div>
     <div class="col-md-12 table-container">
+      <div class="brn-group pull-right add-mar-btm-1">
+        <button class="btn btn-default" ng-if="vm.isEditing" ng-click="vm.cancelChanges()">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+        <button class="btn btn-primary" ng-if="vm.isEditing" ng-disabled="!vm.hasChanges() || vm.tableTracker.$invalid" ng-click="demo.saveChanges()">
+          <span class="glyphicon glyphicon-ok"></span>
+        </button>
+        <button class="btn btn-default" ng-click="vm.add()">
+          <span class="glyphicon glyphicon-plus"></span>
+        </button>
+      </div>
       <table ng-table="tableParams" data-ng-show="vm.deviceList.length > 0"
-             class="table table-bordered table-striped">
+             class="table table-bordered table-striped  table-hover table-condensed editable-table devicetable"
+             ng-form="vm.tableForm"
+             disable-filter="vm.isAdding" device-tracked-table="vm.tableTracker">
         <tbody>
-        <tr ng-repeat="device in $data" class="table">
-          <td data-title="'Ip'" sortable="'ip'">
-            {{device.ip}}
+        <tr ng-repeat="device in $data" ng-form="deviceForm" device-tracked-table-row="device" class="table">
+          <td data-title="'Ip'" sortable="'ip'" ng-switch="device.isEditing" ng-class="ip.$dirty ? 'bg-warning' : ''"
+              ng-form="ip" device-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{device.ip}}</span>
+            <div class="controls" ng-class="ip.$invalid && ip.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="text" name="ip" ng-model="device.ip" class="editable-input form-control input-sm" required/>
+            </div>
           </td>
-          <td data-title="'Snmp&nbsp;Version'" class="dvc-txt-algn-cen"
-              sortable="'snmp_version'">
-            {{device.snmp_version}}
+          <td data-title="'Snmp&nbsp;Version'" sortable="'snmp_version'" class="dvc-txt-algn-cen"
+              ng-switch="device.isEditing" ng-class="snmp_version.$dirty ? 'bg-warning' : ''" ng-form="snmp_version"
+              device-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{device.snmp_version}}</span>
+            <div class="controls" ng-class="snmp_version.$invalid && snmp_version.$dirty ? 'has-error' : ''"
+                 ng-switch-when="true">
+              <input type="text" name="snmp_version" ng-model="device.snmp_version"
+                     class="editable-input form-control input-sm" required/>
+            </div>
           </td>
-          <td data-title="'Snmpv3&nbsp;Auth'" sortable="'snmpv3_auth'">
-            {{device.snmpv3_auth}}
+          <td data-title="'Snmpv3&nbsp;Auth&nbsp;Key'" sortable="'snmpv3_auth_key'" ng-switch="device.isEditing"
+              ng-class="snmpv3_auth_key.$dirty ? 'bg-warning' : ''" ng-form="snmpv3_auth_key" device-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{device.snmpv3_auth_key}}</span>
+            <div class="controls" ng-class="snmpv3_auth_key.$invalid && snmpv3_auth_key.$dirty ? 'has-error' : ''"
+                 ng-switch-when="true">
+              <input type="text" name="snmpv3_auth_key" ng-model="device.snmpv3_auth_key"
+                     class="editable-input form-control input-sm" required/>
+            </div>
           </td>
-          <td data-title="'Snmpv3&nbsp;Auth&nbsp;Key'"
-              sortable="'snmpv3_auth_key'">
-            {{device.snmpv3_auth_key}}
+          <td data-title="'Snmpv3&nbsp;Privacy'" sortable="'snmpv3_privacy'" ng-switch="device.isEditing"
+              ng-class="snmpv3_privacy.$dirty ? 'bg-warning' : ''" ng-form="snmpv3_privacy" device-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{device.snmpv3_privacy}}</span>
+            <div class="controls" ng-class="snmpv3_privacy.$invalid && snmpv3_privacy.$dirty ? 'has-error' : ''"
+                 ng-switch-when="true">
+              <input type="text" name="snmpv3_privacy" ng-model="device.snmpv3_privacy"
+                     class="editable-input form-control input-sm" required/>
+            </div>
           </td>
-          <td data-title="'Snmpv3&nbsp;Privacy'" sortable="'snmpv3_privacy'">
-            {{device.snmpv3_privacy}}
+          <td data-title="'Snmpv3&nbsp;Privacy&nbsp;Key'" sortable="'snmpv3_privacy_key'" ng-switch="device.isEditing"
+              ng-class="snmpv3_privacy_key.$dirty ? 'bg-warning' : ''" ng-form="snmpv3_privacy_key"
+              device-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{device.snmpv3_privacy_key}}</span>
+            <div class="controls" ng-class="snmpv3_privacy_key.$invalid && snmpv3_privacy_key.$dirty ? 'has-error' : ''"
+                 ng-switch-when="true">
+              <input type="text" name="snmpv3_privacy_key" ng-model="device.snmpv3_privacy_key"
+                     class="editable-input form-control input-sm" required/>
+            </div>
           </td>
-          <td data-title="'Snmpv3&nbsp;Privacy&nbsp;Key'"
-              sortable="'snmpv3_privacy_key'">
-            {{device.snmpv3_privacy_key}}
+          <td data-title="'Snmpv3&nbsp;User'" sortable="'snmpv3_user'" ng-switch="device.isEditing"
+              ng-class="snmpv3_user.$dirty ? 'bg-warning' : ''" ng-form="snmpv3_user" device-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{device.snmpv3_user}}</span>
+            <div class="controls" ng-class="snmpv3_user.$invalid && snmpv3_user.$dirty ? 'has-error' : ''"
+                 ng-switch-when="true">
+              <input type="text" name="snmpv3_user" ng-model="device.snmpv3_user"
+                     class="editable-input form-control input-sm" required/>
+            </div>
           </td>
-          <td data-title="'Snmpv3&nbsp;User'" sortable="'snmpv3_user'">
-            {{device.snmpv3_user}}
+          <td>
+            <button class="btn btn-primary btn-sm" ng-click="vm.save(device, deviceForm)" ng-if="device.isEditing"
+                    ng-disabled="deviceForm.$pristine || deviceForm.$invalid"><span class="glyphicon glyphicon-ok"></span>
+            </button>
+            <button class="btn btn-default btn-sm" ng-click="vm.cancel(device, deviceForm)" ng-if="device.isEditing"><span
+              class="glyphicon glyphicon-remove"></span></button>
+            <button class="btn btn-default btn-sm" ng-click="device.isEditing = true" ng-if="!device.isEditing"><span
+              class="glyphicon glyphicon-pencil"></span></button>
+            <button class="btn btn-danger btn-sm" ng-click="vm.del(device)" ng-if="!device.isEditing"><span
+              class="glyphicon glyphicon-trash"></span></button>
           </td>
         </tr>
         </tbody>

@@ -22,7 +22,8 @@ module.exports = {
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
         'public/lib/ng-file-upload-shim/ng-file-upload-shim.js',
         'public/lib/ng-file-upload/ng-file-upload.js',
-        'public/lib/ng-table/dist/ng-table.js'
+        'public/lib/ng-table/dist/ng-table.js',
+        'public/lib/lodash/dist/lodash.js'
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']

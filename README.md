@@ -31,6 +31,11 @@ bower install ng-table
 ```bash
 bower install ng-file-upload --save
 ```
+
+```bash
+bower install lodash
+```
+
 grunt
 
 check in http://localhost:3000
