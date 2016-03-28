@@ -92,11 +92,6 @@ exports.saveDevice = function(req, res) {
     };
     var dev = req.body;
     var device = new DeviceList(req.body);
-    var now = new Date();
-    device.set('company', req.user.company);
-    var created_by = req.user.firstName + " " + req.user.lastName;
-    device.set('created_by', created_by);
-    device.set('created_date', now);
     if (dev._id) {
         var updatedVal = {
             ip: dev.ip,
@@ -110,27 +105,41 @@ exports.saveDevice = function(req, res) {
             created_by: dev.created_by,
             created_date: dev.created_date
         };
-        device.update({
-            "_id": {
-                $eq: dev._id
-            }
-        }, {
-            $set: updatedVal
-        }, function(err, result) {
-            if (err) {
-                console.log("Updated successfully");
-            }
-            console.log("Updated successfully");
-            console.log(result);
-            DeviceList.find({
-                _id: dev._id
-            }).exec(function(err, device) {
-                return res.json(device);
+        console.log(dev._id);
+        DeviceList.findById(dev._id, function(err, devc) {
+            if (err) throw err;
+
+            // change the users location
+            devc.ip = dev.ip,
+                devc.snmp_version = dev.snmp_version,
+                devc.snmpv3_user = dev.snmpv3_user,
+                devc.snmpv3_auth = dev.snmpv3_auth,
+                devc.snmpv3_auth_key = dev.snmpv3_auth_key,
+                devc.snmpv3_privacy = dev.snmpv3_privacy,
+                devc.snmpv3_privacy_key = dev.snmpv3_privacy_key,
+                devc.company = dev.company,
+                devc.created_by = dev.created_by,
+                devc.created_date = dev.created_date
+            var now = new Date();
+            var modified_by = req.user.firstName + " " + req.user.lastName;
+            devc.set('modified_by', created_by);
+            devc.set('modified_date', now);
+            // save the user
+            devc.save(function(err) {
+                if (err) throw err;
+
+                console.log('device successfully updated!');
+                return res.json(devc);
             });
 
         });
 
     } else {
+        var now = new Date();
+        device.set('company', req.user.company);
+        var created_by = req.user.firstName + " " + req.user.lastName;
+        device.set('created_by', created_by);
+        device.set('created_date', now);
         device.save(function(err, data) {
             if (err) {
                 console.log(err);

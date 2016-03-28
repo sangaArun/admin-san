@@ -76,18 +76,27 @@
             deviceForm.$setPristine();
             vm.tableTracker.untrack(device);
             return _.find(originalData, function(r) {
-                return r.id === device.id;
+                return r._id === device._id;
             });
         }
 
         function save(device, deviceForm) {
-                    Device.save(device,function(device){
-                     var originalRow = resetRow(device, deviceForm);
-                     if(typeof originalRow != 'undefined'){
+                    Device.save(device,function(dev){
+                    device.isEditing=false;
+                    vm.isEditing=false;
+                    device._ip=dev.i_ip;
+                    device.created_date=dev.created_date;
+                    device.modified_date=dev.modified_date;
+                    device.modified_by=dev.modified_by;
+                    device.created_by = dev.created_by;
+                    var originalRow = resetRow(device, deviceForm);
+                    if(typeof originalRow!= 'undefined'){
                         angular.extend(originalRow, device);
-                     }else {
+                    }else{
                         originalRow = device;
-                     }
+                    }
+                    console.log(device);
+                     $scope.tableParams.reload();
                     });
                 }
 
