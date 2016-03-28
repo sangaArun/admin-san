@@ -55,7 +55,15 @@ var deviceListSchema = new Schema({
     },
   created_date    : {
      type: Date
-     }
+     },
+  modified_by: {
+    type: String,
+    default: '',
+    trim: true
+           },
+  modified_date    : {
+    type: Date
+   }
 
 });
 

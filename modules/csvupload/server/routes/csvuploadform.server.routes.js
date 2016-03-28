@@ -12,6 +12,10 @@ module.exports = function (app) {
 
   app.route('/fetch/deviceList').get(deviceListCtrl.fetchDeviceList);
 
+  app.route('/api/devices/')
+  .post(deviceListCtrl.saveDevice)
+  .delete(deviceListCtrl.removeDevice);
+
 };
 
 /*module.exports = function (app) {
