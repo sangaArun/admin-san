@@ -24,6 +24,7 @@ module.exports = {
         'public/lib/ng-file-upload/ng-file-upload.js',
         'public/lib/ng-table/dist/ng-table.js',
         'public/lib/lodash/dist/lodash.js'
+
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']

@@ -23,7 +23,9 @@ module.exports = {
         'public/lib/ng-file-upload-shim/ng-file-upload-shim.js',
         'public/lib/ng-file-upload/ng-file-upload.js',
         'public/lib/ng-table/dist/ng-table.js'
-        'public/lib/lodash/dist/lodash.js',
+        'public/lib/lodash/dist/lodash.js'
+
+
         // endbower
       ]
     },

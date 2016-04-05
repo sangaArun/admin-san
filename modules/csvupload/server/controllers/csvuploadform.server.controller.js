@@ -32,20 +32,52 @@ exports.uploadCsv = function(req, res) {
                 headers: ['ip', 'snmp_version', 'snmpv2_community', 'snmpv3_user', 'snmpv3_auth', 'snmpv3_auth_key', 'snmpv3_privacy', 'snmpv3_privacy_key']
             })
             .on('data', function(data) {
-                var devices = new DeviceList(data);
-                var now = new Date();
-                devices.set('company', req.user.company);
-                var created_by = req.user.firstName + " " + req.user.lastName;
-                devices.set('created_by', created_by);
-                devices.set('created_date', now);
-                // console.log(devices, '***********');
-                devices.save(function(err, data) {
-                    if (err) {
-                        //console.log(err);
-                    } else {
-                        //console.log('saved *****', data);
+            console.log(data);
+            if(data.ip != 'ip'){
+                console.log(data.ip);
+                if(data.ip.indexOf('-') > -1){
+                    var dataArr = data.ip.split('-');
+                    var lowData = dataArr[0];
+                    var lowDataArr = lowData.split('.');
+                    var lwRange = parseInt(lowDataArr[3]);
+                    var highData = dataArr[1];
+                    var highDataArr = highData.split('.');
+                    var hgRange = parseInt(highDataArr[3]);
+                    for(var i = lwRange; i <= hgRange;i++){
+                        var pData = data;
+                        pData.ip = lowDataArr[0]+"."+lowDataArr[1]+"."+lowDataArr[2]+"."+i;
+                        console.log(pData);
+                        var devices = new DeviceList(pData);
+                        var now = new Date();
+                        devices.set('company', req.user.company);
+                        var created_by = req.user.firstName + " " + req.user.lastName;
+                        devices.set('created_by', created_by);
+                        devices.set('created_date', now);
+                        devices.save(function(err, data) {
+                            if (err) {
+                                //console.log(err);
+                            } else {
+                                //console.log('saved *****', data);
+                            }
+                        });
                     }
-                });
+                }else{
+                        var devices = new DeviceList(data);
+                        var now = new Date();
+                        devices.set('company', req.user.company);
+                        var created_by = req.user.firstName + " " + req.user.lastName;
+                        devices.set('created_by', created_by);
+                        devices.set('created_date', now);
+                        // console.log(devices, '***********');
+                        devices.save(function(err, data) {
+                            if (err) {
+                                //console.log(err);
+                            } else {
+                                //console.log('saved *****', data);
+                            }
+                        });
+                }
+                }
             })
             .on('end', function() {
                 console.log('done  sanga');

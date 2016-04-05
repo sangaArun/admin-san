@@ -36,6 +36,11 @@ bower install ng-file-upload --save
 bower install lodash
 ```
 
+```bash
+npm install elasticsearch --save
+```
+
+
 grunt
 
 check in http://localhost:3000
