@@ -1,0 +1,73 @@
+<section>
+  <div class="row" style="margin-top: 2%;">
+    <div class="col-md-4">
+      <p class="input-group">
+        <input type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" placeholder="From Date" ng-model="vm.startDate" is-open="vm.popup1.opened" datepicker-options="vm.dateOptions" ng-required="true" close-text="Close" alt-input-formats="vm.altInputFormats" />
+          <span class="input-group-btn" >
+            <button type="button" class="btn btn-default" ng-click="vm.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+      </p>
+    </div>
+    <div class="col-md-4">
+      <p class="input-group">
+        <input type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" placeholder="To Date" ng-model="vm.endDate" is-open="vm.popup2.opened" datepicker-options="vm.dateOptions" ng-required="true" close-text="Close" alt-input-formats="vm.altInputFormats" />
+          <span class="input-group-btn" >
+            <button type="button" class="btn btn-default" ng-click="vm.open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+      </p>
+    </div>
+    <div class="col-md-4">
+      <p class="input-group">
+          <span class="input-group-btn">
+            <button type="button" data-ng-click="vm.filter()" class="btn btn-success"><i class="glyphicon glyphicon-search"></i></button>
+          </span>
+        <span class="input-group-btn" style="right:30%">
+            <button type="button" class="btn btn-danger"><i class="glyphicon glyphicon-refresh"></i></button>
+        </span>
+      </p>
+    </div>
+  </div>
+  <div class="row dev-mar-top-2">
+    <div class="col-md-12">
+      <div>
+        <h3>Manage Devices</h3>
+      </div>
+    </div>
+  </div>
+    <div class="form-group search-mar-left">
+      <input name="search" placeholder="Search" ng-model="vm.search" type="text"/>
+      <span></span>
+      </span>
+    </div>
+    <div class="col-md-12 table-container">
+      <table ng-table="tableParams" data-ng-show="vm.devices.length > 0" class="table table-bordered table-striped  table-hover table-condensed"
+             ng-form="vm.tableForm">
+        <tbody>
+        <tr ng-repeat="device in $data" lass="table">
+          <td data-title="'Description'" sortable="'description'">
+            <span >{{device.description}}</span>
+          </td>
+          <td data-title="'Ip Address'" sortable="'ipAddress'">
+            <span >{{device.ipAddress}}</span>
+          </td>
+          <td data-title="'Serial No'" sortable="'serialNo'">
+            <span >{{device.serialNo}}</span>
+          </td>
+          <td data-title="'Software Version'" sortable="'softwareVersion'">
+            <span >{{device.softwareVersion}}</span>
+          </td>
+          <td data-title="'Model'" sortable="'model'">
+            <span >{{device.model}}</span>
+          </td>
+          <td data-title="'Last Seen'" sortable="'lastSeen'">
+            <span >{{device.lastSeen}}</span>
+          </td>
+          <td data-title="'Security Issue'" sortable="'securityIssue'">
+            <span >{{device.securityIssue}}</span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+</section>
