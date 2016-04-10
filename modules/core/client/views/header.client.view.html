@@ -20,6 +20,13 @@
         <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>
       </li>
     </ul>
+    <ul class="navbar-form navbar-left" role="search" style="margin-left: 30%;" ng-controller="HeaderController">
+      <li class="form-group">
+        <input type="text" class="form-control" placeholder="Search" data-ng-model="searchTerm">
+      </li>
+      <span class="glyphicon glyphicon-search" data-ng-click="searchBar()"  style="right: 26px;top: 4px;"></span>
+      <!--<button type="submit" class="btn btn-default"    style="margin-left:" ></button>-->
+    </ul>
     <ul class="nav navbar-nav navbar-right" ng-hide="authentication.user">
       <li ui-sref-active="active">
         <a ui-sref="authentication.signup">Sign Up</a>

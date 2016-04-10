@@ -18,6 +18,10 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', 'Auth
       $scope.isCollapsed = !$scope.isCollapsed;
     };
 
+    $scope.searchBar = function(){
+        $state.transitionTo("search.devices", { term: $scope.searchTerm });
+    }
+
     // Collapsing the menu after navigation
     $scope.$on('$stateChangeSuccess', function () {
       $scope.isCollapsed = false;
